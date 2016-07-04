@@ -1,0 +1,65 @@
+
+/*使用方法：@include font-dpr(16px);*/
+@mixin font-dpr($font-size: 12px){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+
+@mixin line-h($line-height: 14px){
+  line-height: $line-height;
+  [data-dpr="2"] & {
+    line-height: $line-height * 2;
+  }
+
+  [data-dpr="3"] & {
+    line-height: $line-height * 3;
+  }
+}
+
+/* flex布局 */
+@mixin flex-parent {
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row nowrap;
+	-webkit-flex-flow: row nowrap;
+	justify-content: space-around;
+	-webkit-justify-content: space-around;
+}
+
+/* 通用头部布局 */
+@mixin common-head {
+  header{
+    position: relative;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    background-color: #c0a877;
+    color: #fff;
+    text-align:center;
+    @include font-dpr(16px);
+    a{
+      position:absolute;
+      top: 0.28125rem;
+      width: 0.6875rem;
+      height: 0.6875rem;
+      img{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+      }
+    }
+    .back{
+      left: 0.3125rem;
+    }
+    .tab{
+      right: 0.3125rem;
+    }
+  }
+}
